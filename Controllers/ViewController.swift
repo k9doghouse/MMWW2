@@ -1,4 +1,4 @@
-//
+// https://github.com/k9doghouse/MMWW2.git
 //  ViewController.swift
 //  UITableViewCellCustom
 //
@@ -21,6 +21,10 @@ struct GamePlay
 var daWord : String = ""
 var daGuess : String = ""
 var daResult : String = ""
+var daCount : Int = 0
+var list : [String] = Four().four
+var count : Int = 0
+let cellIdentifier = "Cell"
 
 var game = GamePlay(gameWord : "",
                     guess : "",
@@ -42,10 +46,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     {
 
     }
-
-    var list : [String] = Four().four
-    var count : Int = 0
-    let cellIdentifier = "Cell"
 
     func startGame()
     {
@@ -156,6 +156,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         else
         {
             daResult = result(for: game.guess)
+            daCount += 1; print("daCount: ",daCount)
         }
     }
 }// end class ViewController...

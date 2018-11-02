@@ -121,15 +121,15 @@
                                 <color key="sectionIndexBackgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexTrackingBackgroundColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="42" id="p7Y-Mw-4dj" userLabel="gamePlayCell" customClass="GamePlayTableViewCell" customModule="MMWW2" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="22" width="374" height="42"/>
+                                    <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="40" id="p7Y-Mw-4dj" userLabel="gamePlayCell" customClass="GamePlayTableViewCell" customModule="MMWW2" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="22" width="374" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p7Y-Mw-4dj" id="awh-I7-bDY">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="41.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="39.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="center" restorationIdentifier="cellGuessLabel" text="cellGuessLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lks-Zz-gBf" userLabel="Guess Label" customClass="RoundedLabel" customModule="MMWW2" customModuleProvider="target">
-                                                    <rect key="frame" x="33" y="13" width="125" height="15.666666666666664"/>
+                                                    <rect key="frame" x="42" y="8.0000000000000018" width="125" height="25.666666666666671"/>
                                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="125" id="xW3-eY-i9d"/>
@@ -141,7 +141,7 @@
                                                     <size key="shadowOffset" width="2" height="2"/>
                                                 </label>
                                                 <label opaque="NO" contentMode="center" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" restorationIdentifier="cellResultLabel" text="cellResultLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CDr-sR-iDz" userLabel="Result Label" customClass="RoundedLabel" customModule="MMWW2" customModuleProvider="target">
-                                                    <rect key="frame" x="201" y="9.3333333333333357" width="124" height="23"/>
+                                                    <rect key="frame" x="201" y="8.3333333333333357" width="124" height="23"/>
                                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -150,7 +150,7 @@
                                                     <size key="shadowOffset" width="2" height="2"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="cellCountLabel" text="00." lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XnC-CX-RBY" customClass="RoundedLabel" customModule="MMWW2" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="9.3333333333333357" width="28" height="23"/>
+                                                    <rect key="frame" x="6" y="8.3333333333333357" width="28" height="23"/>
                                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -161,16 +161,15 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="Lks-Zz-gBf" firstAttribute="leading" secondItem="awh-I7-bDY" secondAttribute="leadingMargin" constant="13" id="1tG-jc-ww6"/>
+                                                <constraint firstItem="Lks-Zz-gBf" firstAttribute="leading" secondItem="awh-I7-bDY" secondAttribute="leadingMargin" constant="22" id="1tG-jc-ww6"/>
                                                 <constraint firstItem="XnC-CX-RBY" firstAttribute="baseline" secondItem="CDr-sR-iDz" secondAttribute="firstBaseline" id="2Ht-Ya-Ozm"/>
-                                                <constraint firstItem="CDr-sR-iDz" firstAttribute="top" secondItem="XnC-CX-RBY" secondAttribute="top" id="2ey-GJ-cM0"/>
                                                 <constraint firstItem="XnC-CX-RBY" firstAttribute="centerY" secondItem="awh-I7-bDY" secondAttribute="centerY" id="DtT-yD-S16"/>
-                                                <constraint firstItem="Lks-Zz-gBf" firstAttribute="top" secondItem="awh-I7-bDY" secondAttribute="top" constant="13" id="Hhl-oS-xgQ"/>
-                                                <constraint firstItem="XnC-CX-RBY" firstAttribute="leading" secondItem="awh-I7-bDY" secondAttribute="leading" id="Ly4-fe-HKr"/>
+                                                <constraint firstItem="Lks-Zz-gBf" firstAttribute="top" secondItem="awh-I7-bDY" secondAttribute="top" constant="8" id="Hhl-oS-xgQ"/>
+                                                <constraint firstItem="XnC-CX-RBY" firstAttribute="leading" secondItem="awh-I7-bDY" secondAttribute="leading" constant="6" id="Ly4-fe-HKr"/>
                                                 <constraint firstItem="CDr-sR-iDz" firstAttribute="centerY" secondItem="XnC-CX-RBY" secondAttribute="centerY" id="O17-la-uxf"/>
                                                 <constraint firstItem="CDr-sR-iDz" firstAttribute="bottom" secondItem="XnC-CX-RBY" secondAttribute="bottom" id="Uzu-Nd-uBG"/>
                                                 <constraint firstItem="CDr-sR-iDz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Lks-Zz-gBf" secondAttribute="trailing" constant="8" symbolic="YES" id="Wd7-o7-lTI"/>
-                                                <constraint firstItem="Lks-Zz-gBf" firstAttribute="centerY" secondItem="XnC-CX-RBY" secondAttribute="centerY" id="iGX-jg-2JC"/>
+                                                <constraint firstItem="Lks-Zz-gBf" firstAttribute="centerY" secondItem="XnC-CX-RBY" secondAttribute="centerY" constant="1" id="iGX-jg-2JC"/>
                                                 <constraint firstItem="CDr-sR-iDz" firstAttribute="trailing" secondItem="awh-I7-bDY" secondAttribute="trailingMargin" constant="-29" id="mXS-m0-en6"/>
                                                 <constraint firstItem="Lks-Zz-gBf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XnC-CX-RBY" secondAttribute="trailing" constant="5" id="nGh-un-fs2"/>
                                                 <constraint firstItem="XnC-CX-RBY" firstAttribute="centerY" secondItem="CDr-sR-iDz" secondAttribute="centerY" id="ys6-De-Qag"/>
@@ -233,7 +232,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="624.63768115942037" y="809.51086956521749"/>
+            <point key="canvasLocation" x="543" y="713"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.49803921569999998" green="0.76078431369999999" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
