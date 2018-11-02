@@ -37,15 +37,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var textField: UITextField!
-    @IBAction func howManyLettersInTheGameWordSC(_ sender: UISegmentedControl)
-    {
-        
-    }
-
-    @IBAction func allowDoubleLettersOrNotSwitch(_ sender: UISwitch)
-    {
-
-    }
 
     func startGame()
     {
@@ -60,7 +51,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.dataSource = self
         tableView.estimatedRowHeight = 40.0
         tableView.rowHeight = UITableView.automaticDimension
-        game.howManyLettersInTheWord = 4
         startGame()
     }
 
@@ -103,7 +93,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         daGuess = textField.text?.lowercased() ?? "OUCH"
         guard daGuess.rangeOfCharacter(from: unwantedCharacters) == nil else { return }
-        //guessLabel.text = daGuess
         game.guess = daGuess
 
         let guessString = daGuess
@@ -113,6 +102,30 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         textField.text = ""
     }
 
+    @IBAction public func segmentedControlValueChanged(_ sender: UISegmentedControl)
+    {
+        switch sender.selectedSegmentIndex
+        {
+        case 0:
+            game.howManyLettersInTheWord = 4
+            print(game.howManyLettersInTheWord," letter word")
+        case 1:
+            game.howManyLettersInTheWord = 5
+            print(game.howManyLettersInTheWord," letter word")
+        case 2:
+            game.howManyLettersInTheWord = 6
+            print(game.howManyLettersInTheWord," letter word")
+        default:
+            print(game.howManyLettersInTheWord," letter word (default:)")
+            break;
+        }
+    }
+
+    @IBAction func allowDoubleLettersOrNotSwitch(_ sender: UISwitch)
+    {
+
+    }
+
     func solved()
     {
         Alert.showSolvedAlert(on: self)
@@ -120,6 +133,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         startGame()
     }
 
+    func getResultStringForUsersInput()
+    {
+        if game.guess == game.gameWord
+        { solved() }
+        else
+        {
+            daResult = result(for: game.guess)
+            daCount += 1; print("daCount: ",daCount)
+        }
+    }
+}// end class ViewController...
+
+extension ViewController {
     func result(for guessString: String) -> String
     {
         var includedAndCorrect = 0
@@ -148,18 +174,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         daGuess = ""
         return game.result
     }
-
-    func getResultStringForUsersInput()
-    {
-        if game.guess == game.gameWord
-        { solved() }
-        else
-        {
-            daResult = result(for: game.guess)
-            daCount += 1; print("daCount: ",daCount)
-        }
-    }
-}// end class ViewController...
+}
 
 extension ViewController
 {

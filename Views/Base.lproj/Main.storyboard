@@ -65,7 +65,7 @@
                                         </segments>
                                         <color key="tintColor" red="0.60127561463586154" green="0.60722883854314724" blue="0.60722883854314724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <action selector="howManyLettersInTheGameWordSC:" destination="BYZ-38-t0r" eventType="valueChanged" id="DGc-I6-CYp"/>
+                                            <action selector="segmentedControlValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="DGc-I6-CYp"/>
                                         </connections>
                                     </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="allow double letters" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4M-vg-sUl">
