@@ -202,13 +202,10 @@ extension ViewController
 
         let firstCharStart  = template.index(template.startIndex, offsetBy: first)
         let firstCharEnd    = template.index(template.endIndex,   offsetBy: -fourth)
-
         let secondCharStart = template.index(template.startIndex, offsetBy: second)
         let secondCharEnd   = template.index(template.endIndex,   offsetBy: -third)
-
         let thirdCharStart  = template.index(template.startIndex, offsetBy: third)
         let thirdCharEnd    = template.index(template.endIndex,   offsetBy: -second)
-        
         let fourthCharStart = template.index(template.startIndex, offsetBy: fourth)
         let fourthCharEnd   = template.index(template.endIndex,   offsetBy: -first)
 
