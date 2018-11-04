@@ -1,6 +1,6 @@
 //
 //  Alerts.swift
-//  Sliding Game
+//  MMWW2
 //
 //  Created by murph on 8/23/18.
 //  Copyright © 2018 k9doghouse. All rights reserved.

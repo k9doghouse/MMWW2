@@ -1,8 +1,7 @@
 //
 //  GamePlayTableViewCell.swift
-//  UITableViewCellCustom
+//  MMWW2
 //
-//  Thanks: Lawrence F MacFadyen
 //  2018 k9doghouse
 //
 

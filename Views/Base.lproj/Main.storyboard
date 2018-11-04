@@ -20,219 +20,195 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bTT-gx-7l7">
-                                <rect key="frame" x="27" y="27" width="360" height="89"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VWO-vJ-9iA">
+                                <rect key="frame" x="20" y="27" width="374" height="689"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="textField" contentHorizontalAlignment="leading" contentVerticalAlignment="center" placeholder="Guess" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="T87-1C-Q10" customClass="RoundedTextInputField" customModule="MMWW2" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="13" width="90" height="29"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                        <color key="tintColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="Yeh-TP-8As"/>
-                                        </constraints>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bTT-gx-7l7">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="138"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="textField" contentHorizontalAlignment="leading" contentVerticalAlignment="center" placeholder="Guess" textAlignment="center" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="T87-1C-Q10" customClass="RoundedTextInputField" customModule="MMWW2" customModuleProvider="target">
+                                                <rect key="frame" x="8" y="8" width="102" height="43"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                <color key="tintColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="751" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Boa-Is-kFV" customClass="RoundedButton" customModule="MMWW2" customModuleProvider="target">
+                                                <rect key="frame" x="241" y="0.0" width="119" height="41"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <size key="titleShadowOffset" width="1" height="1"/>
+                                                <state key="normal" title=" ENTER ">
+                                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleShadowColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="enterButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cc1-R9-4DL"/>
+                                                </connections>
+                                            </button>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9Mb-19-xgx">
+                                                <rect key="frame" x="8" y="59" width="51" height="31"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" red="0.60127561460000001" green="0.60722883849999998" blue="0.60722883849999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="onTintColor" red="0.4891670018144213" green="0.59989315841725888" blue="0.52710305552410408" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="thumbTintColor" red="0.73884476834342183" green="0.81862332973705587" blue="0.74053696111313716" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <action selector="allowDoubleLettersOrNotSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="2O6-28-eXL"/>
+                                                </connections>
+                                            </switch>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="allow double letters" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4M-vg-sUl">
+                                                <rect key="frame" x="67" y="65" width="127" height="18"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="highlightedColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="shadowColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <size key="shadowOffset" width="1" height="1"/>
+                                            </label>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="uch-b9-4fX">
+                                                <rect key="frame" x="241" y="60" width="119" height="29"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.31663759453647633" green="0.31663759453647633" blue="0.31663759453647633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <segments>
+                                                    <segment title="four"/>
+                                                    <segment title="five"/>
+                                                    <segment title="six"/>
+                                                </segments>
+                                                <color key="tintColor" red="0.60127561463586154" green="0.60722883854314724" blue="0.60722883854314724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <action selector="segmentedControlValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="DGc-I6-CYp"/>
+                                                </connections>
+                                            </segmentedControl>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="guessguess" text="guessguess" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DBE-N0-PLg">
+                                                <rect key="frame" x="7" y="97" width="105" height="41"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <color key="textColor" red="0.80194910129999997" green="1" blue="0.78797933210000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="highlightedColor" red="0.49803921569999998" green="0.76078431369999999" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="shadowColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="resultresult" text="result  result" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1no-mG-Cov">
+                                                <rect key="frame" x="255" y="97" width="105" height="41"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <color key="textColor" red="0.80194910129999997" green="1" blue="0.78797933210000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="highlightedColor" red="0.49803921569999998" green="0.76078431369999999" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="shadowColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="countcount" text="countcount" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C3l-Jt-9yc">
+                                                <rect key="frame" x="136" y="97" width="102" height="41"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <color key="textColor" red="0.80194910129999997" green="1" blue="0.78797933210000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="highlightedColor" red="0.49803921569999998" green="0.76078431369999999" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="shadowColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" red="0.80194910129999997" green="1" blue="0.78797933210000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                    <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="textView" keyboardDismissMode="interactive" text="notes:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nJK-Do-rth" customClass="RoundedTextView" customModule="MMWW2" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="146" width="374" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" red="0.80194910129999997" green="1" blue="0.78797933210000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                    </textView>
+                                    <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="tableView" alwaysBounceVertical="YES" pagingEnabled="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="42" estimatedRowHeight="40" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="npl-t8-XVR">
+                                        <rect key="frame" x="0.0" y="234" width="374" height="455"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="sectionIndexColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="sectionIndexBackgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="sectionIndexTrackingBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <prototypes>
+                                            <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="40" id="p7Y-Mw-4dj" userLabel="gamePlayCell" customClass="GamePlayTableViewCell" customModule="MMWW2" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="22" width="374" height="40"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p7Y-Mw-4dj" id="awh-I7-bDY">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="39.666666666666664"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="center" fixedFrame="YES" restorationIdentifier="cellGuessLabel" text="cellGuessLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lks-Zz-gBf" userLabel="Cell Guess Label" customClass="RoundedLabel" customModule="MMWW2" customModuleProvider="target">
+                                                            <rect key="frame" x="50" y="5" width="148" height="29"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                            <color key="textColor" red="0.80194910129999997" green="1" blue="0.78797933210000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="highlightedColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <size key="shadowOffset" width="2" height="2"/>
+                                                        </label>
+                                                        <label opaque="NO" contentMode="center" horizontalHuggingPriority="249" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" fixedFrame="YES" restorationIdentifier="cellResultLabel" text="cellResultLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CDr-sR-iDz" userLabel="Cell Result Label" customClass="RoundedLabel" customModule="MMWW2" customModuleProvider="target">
+                                                            <rect key="frame" x="206" y="5" width="147" height="29"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                            <color key="textColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="highlightedColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <size key="shadowOffset" width="2" height="2"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="cellCountLabel" text="00" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XnC-CX-RBY" customClass="RoundedLabel" customModule="MMWW2" customModuleProvider="target">
+                                                            <rect key="frame" x="13" y="6" width="29" height="28"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="highlightedColor" name="controlAccentColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <size key="shadowOffset" width="1" height="1"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </tableViewCellContentView>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <integer key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="cellCountLabel" destination="XnC-CX-RBY" id="HEw-sb-kfH"/>
+                                                    <outlet property="cellGuessLabel" destination="Lks-Zz-gBf" id="bEK-8e-mJ9"/>
+                                                    <outlet property="cellResultLabel" destination="CDr-sR-iDz" id="5ut-JV-yGP"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
-                                                <integer key="value" value="4"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="16"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Boa-Is-kFV" customClass="RoundedButton" customModule="MMWW2" customModuleProvider="target">
-                                        <rect key="frame" x="241" y="0.0" width="119" height="41"/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <size key="titleShadowOffset" width="1" height="1"/>
-                                        <state key="normal" title=" ENTER ">
-                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <color key="titleShadowColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="enterButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cc1-R9-4DL"/>
-                                        </connections>
-                                    </button>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="uch-b9-4fX">
-                                        <rect key="frame" x="241" y="60" width="119" height="29"/>
-                                        <color key="backgroundColor" red="0.31663759453647633" green="0.31663759453647633" blue="0.31663759453647633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="28" id="XEi-lw-ng1"/>
-                                        </constraints>
-                                        <segments>
-                                            <segment title="four"/>
-                                            <segment title="five"/>
-                                            <segment title="six"/>
-                                        </segments>
-                                        <color key="tintColor" red="0.60127561463586154" green="0.60722883854314724" blue="0.60722883854314724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <action selector="segmentedControlValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="DGc-I6-CYp"/>
-                                        </connections>
-                                    </segmentedControl>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="allow double letters" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4M-vg-sUl">
-                                        <rect key="frame" x="67" y="65" width="127" height="18"/>
-                                        <color key="tintColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="highlightedColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="shadowColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <size key="shadowOffset" width="1" height="1"/>
-                                    </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9Mb-19-xgx">
-                                        <rect key="frame" x="0.0" y="59" width="51" height="30"/>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="tintColor" red="0.60127561460000001" green="0.60722883849999998" blue="0.60722883849999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="onTintColor" red="0.4891670018144213" green="0.59989315841725888" blue="0.52710305552410408" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <color key="thumbTintColor" red="0.73884476834342183" green="0.81862332973705587" blue="0.74053696111313716" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <action selector="allowDoubleLettersOrNotSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="2O6-28-eXL"/>
-                                        </connections>
-                                    </switch>
+                                    </tableView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" red="0.80194910129999997" green="1" blue="0.78797933210000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="A4M-vg-sUl" secondAttribute="trailing" constant="20" symbolic="YES" id="0KD-vW-uCX"/>
-                                    <constraint firstItem="uch-b9-4fX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="A4M-vg-sUl" secondAttribute="trailing" constant="8" symbolic="YES" id="51s-6F-e4k"/>
-                                    <constraint firstItem="A4M-vg-sUl" firstAttribute="firstBaseline" secondItem="uch-b9-4fX" secondAttribute="baseline" id="AHi-uZ-R5i"/>
-                                    <constraint firstItem="Boa-Is-kFV" firstAttribute="top" secondItem="bTT-gx-7l7" secondAttribute="top" id="Hid-pM-zTy"/>
-                                    <constraint firstItem="A4M-vg-sUl" firstAttribute="centerY" secondItem="9Mb-19-xgx" secondAttribute="centerY" id="KoU-rj-NaE"/>
-                                    <constraint firstItem="A4M-vg-sUl" firstAttribute="baseline" secondItem="uch-b9-4fX" secondAttribute="baseline" id="OLM-q4-r5v"/>
-                                    <constraint firstItem="9Mb-19-xgx" firstAttribute="top" secondItem="bTT-gx-7l7" secondAttribute="top" constant="59" id="OrM-xJ-qMa"/>
-                                    <constraint firstItem="A4M-vg-sUl" firstAttribute="top" secondItem="T87-1C-Q10" secondAttribute="bottom" constant="23" id="R5l-HS-jfU"/>
-                                    <constraint firstItem="9Mb-19-xgx" firstAttribute="top" secondItem="T87-1C-Q10" secondAttribute="bottom" constant="17" id="bYt-Lh-BYy"/>
-                                    <constraint firstItem="9Mb-19-xgx" firstAttribute="leading" secondItem="T87-1C-Q10" secondAttribute="leading" id="epq-6I-f41"/>
-                                    <constraint firstItem="Boa-Is-kFV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="T87-1C-Q10" secondAttribute="trailing" constant="8" symbolic="YES" id="jNQ-1I-Mam"/>
-                                    <constraint firstItem="A4M-vg-sUl" firstAttribute="leading" secondItem="9Mb-19-xgx" secondAttribute="trailing" constant="18" id="lnN-S3-Kcw"/>
-                                    <constraint firstAttribute="trailing" secondItem="uch-b9-4fX" secondAttribute="trailing" id="ltH-kB-qXu"/>
-                                    <constraint firstAttribute="trailing" secondItem="Boa-Is-kFV" secondAttribute="trailing" id="piS-ha-i7R"/>
-                                    <constraint firstItem="T87-1C-Q10" firstAttribute="leading" secondItem="bTT-gx-7l7" secondAttribute="leading" id="uya-5Y-Icw"/>
-                                    <constraint firstItem="uch-b9-4fX" firstAttribute="width" secondItem="Boa-Is-kFV" secondAttribute="width" id="zX0-fK-cch"/>
-                                </constraints>
                             </view>
-                            <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="tableView" alwaysBounceVertical="YES" pagingEnabled="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="42" estimatedRowHeight="40" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="npl-t8-XVR">
-                                <rect key="frame" x="20" y="306" width="374" height="410"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="240" id="88h-5K-73g"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="409" id="sHf-SA-och"/>
-                                </constraints>
-                                <color key="separatorColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="sectionIndexColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="sectionIndexBackgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="sectionIndexTrackingBackgroundColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <prototypes>
-                                    <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="40" id="p7Y-Mw-4dj" userLabel="gamePlayCell" customClass="GamePlayTableViewCell" customModule="MMWW2" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="22" width="374" height="40"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="p7Y-Mw-4dj" id="awh-I7-bDY">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="39.666666666666664"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" restorationIdentifier="cellGuessLabel" text="cellGuessLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lks-Zz-gBf" userLabel="Guess Label" customClass="RoundedLabel" customModule="MMWW2" customModuleProvider="target">
-                                                    <rect key="frame" x="42" y="8.0000000000000018" width="125" height="25.666666666666671"/>
-                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="125" id="xW3-eY-i9d"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <color key="textColor" red="0.80194910129999997" green="1" blue="0.78797933210000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <color key="highlightedColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <size key="shadowOffset" width="2" height="2"/>
-                                                </label>
-                                                <label opaque="NO" contentMode="center" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" restorationIdentifier="cellResultLabel" text="cellResultLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CDr-sR-iDz" userLabel="Result Label" customClass="RoundedLabel" customModule="MMWW2" customModuleProvider="target">
-                                                    <rect key="frame" x="201" y="8.3333333333333357" width="124" height="23"/>
-                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <color key="textColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <color key="highlightedColor" red="0.58188301320000002" green="0.21569153669999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <size key="shadowOffset" width="2" height="2"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="cellCountLabel" text="00." lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XnC-CX-RBY" customClass="RoundedLabel" customModule="MMWW2" customModuleProvider="target">
-                                                    <rect key="frame" x="6" y="8.3333333333333357" width="28" height="23"/>
-                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <color key="highlightedColor" name="controlAccentColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <size key="shadowOffset" width="1" height="1"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstItem="Lks-Zz-gBf" firstAttribute="leading" secondItem="awh-I7-bDY" secondAttribute="leadingMargin" constant="22" id="1tG-jc-ww6"/>
-                                                <constraint firstItem="XnC-CX-RBY" firstAttribute="baseline" secondItem="CDr-sR-iDz" secondAttribute="firstBaseline" id="2Ht-Ya-Ozm"/>
-                                                <constraint firstItem="XnC-CX-RBY" firstAttribute="centerY" secondItem="awh-I7-bDY" secondAttribute="centerY" id="DtT-yD-S16"/>
-                                                <constraint firstItem="Lks-Zz-gBf" firstAttribute="top" secondItem="awh-I7-bDY" secondAttribute="top" constant="8" id="Hhl-oS-xgQ"/>
-                                                <constraint firstItem="XnC-CX-RBY" firstAttribute="leading" secondItem="awh-I7-bDY" secondAttribute="leading" constant="6" id="Ly4-fe-HKr"/>
-                                                <constraint firstItem="CDr-sR-iDz" firstAttribute="centerY" secondItem="XnC-CX-RBY" secondAttribute="centerY" id="O17-la-uxf"/>
-                                                <constraint firstItem="CDr-sR-iDz" firstAttribute="bottom" secondItem="XnC-CX-RBY" secondAttribute="bottom" id="Uzu-Nd-uBG"/>
-                                                <constraint firstItem="CDr-sR-iDz" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Lks-Zz-gBf" secondAttribute="trailing" constant="8" symbolic="YES" id="Wd7-o7-lTI"/>
-                                                <constraint firstItem="Lks-Zz-gBf" firstAttribute="centerY" secondItem="XnC-CX-RBY" secondAttribute="centerY" constant="1" id="iGX-jg-2JC"/>
-                                                <constraint firstItem="CDr-sR-iDz" firstAttribute="trailing" secondItem="awh-I7-bDY" secondAttribute="trailingMargin" constant="-29" id="mXS-m0-en6"/>
-                                                <constraint firstItem="Lks-Zz-gBf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XnC-CX-RBY" secondAttribute="trailing" constant="5" id="nGh-un-fs2"/>
-                                                <constraint firstItem="XnC-CX-RBY" firstAttribute="centerY" secondItem="CDr-sR-iDz" secondAttribute="centerY" id="ys6-De-Qag"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
-                                        <connections>
-                                            <outlet property="cellCountLabel" destination="XnC-CX-RBY" id="HEw-sb-kfH"/>
-                                            <outlet property="cellGuessLabel" destination="Lks-Zz-gBf" id="bEK-8e-mJ9"/>
-                                            <outlet property="cellResultLabel" destination="CDr-sR-iDz" id="5ut-JV-yGP"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <integer key="value" value="10"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </tableView>
-                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="textView" keyboardDismissMode="interactive" text="Definition of the Game Word." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nJK-Do-rth">
-                                <rect key="frame" x="20" y="173" width="374" height="125"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" red="0.80194910129999997" green="1" blue="0.78797933210000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="125" id="xVq-ob-b2a"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardAppearance="alert" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <integer key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="bTT-gx-7l7" secondAttribute="bottom" constant="620" id="1Pt-gU-3k3"/>
-                            <constraint firstItem="npl-t8-XVR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1xq-x0-zVT"/>
-                            <constraint firstItem="npl-t8-XVR" firstAttribute="top" secondItem="nJK-Do-rth" secondAttribute="bottom" constant="8" id="2Iy-qo-sSn"/>
-                            <constraint firstItem="bTT-gx-7l7" firstAttribute="centerX" secondItem="nJK-Do-rth" secondAttribute="centerX" id="78R-Pz-Sxy"/>
-                            <constraint firstItem="npl-t8-XVR" firstAttribute="top" secondItem="nJK-Do-rth" secondAttribute="bottom" constant="8" id="AJc-nU-ak2"/>
-                            <constraint firstItem="nJK-Do-rth" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KR3-nz-l6L"/>
-                            <constraint firstItem="nJK-Do-rth" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="Lwe-Il-tX2"/>
-                            <constraint firstItem="npl-t8-XVR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="PpO-bn-17R"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="npl-t8-XVR" secondAttribute="bottom" constant="20" id="X5a-Mm-qKD"/>
-                            <constraint firstItem="bTT-gx-7l7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="7" id="bVl-gO-mTm"/>
-                            <constraint firstAttribute="trailing" secondItem="npl-t8-XVR" secondAttribute="trailing" constant="20" id="orQ-rt-y92"/>
-                            <constraint firstItem="nJK-Do-rth" firstAttribute="top" secondItem="bTT-gx-7l7" secondAttribute="bottom" constant="57" id="qnu-Ez-eGc"/>
-                            <constraint firstAttribute="trailing" secondItem="nJK-Do-rth" secondAttribute="trailing" constant="20" id="qzZ-KV-DZD"/>
-                            <constraint firstItem="bTT-gx-7l7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="7" id="tuP-pI-14h"/>
-                            <constraint firstItem="npl-t8-XVR" firstAttribute="top" secondItem="nJK-Do-rth" secondAttribute="bottom" constant="8" symbolic="YES" id="wxy-xy-HD9"/>
-                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="countcount" destination="C3l-Jt-9yc" id="8f0-3F-6pJ"/>
+                        <outlet property="guessguess" destination="DBE-N0-PLg" id="9PY-zp-gvO"/>
+                        <outlet property="resultresult" destination="1no-mG-Cov" id="yVb-VN-uIK"/>
                         <outlet property="tableView" destination="npl-t8-XVR" id="RYQ-hX-RKX"/>
                         <outlet property="textField" destination="T87-1C-Q10" id="aEU-lW-5xM"/>
+                        <outlet property="textView" destination="nJK-Do-rth" id="27m-wc-4DB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="543" y="713"/>
+            <point key="canvasLocation" x="540.57971014492762" y="711.68478260869574"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.49803921569999998" green="0.76078431369999999" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
