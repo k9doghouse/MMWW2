@@ -30,7 +30,7 @@ struct Alert
     static func showSolvedAlert(on vc : UIViewController)
     {
         showSolvedAlert(on : vc,
-                        with : "You solved the puzzle!\n ... in \(daCount + 1) tries. \nyour word: \(game.gameWord)",
+                        with : "You solved the puzzle!\n ... in \(daCount + 1) tries. \nyour word: \(game.gameWord)\n",
                      message : "Tap the 'OK Button' to play again.")
     }
 

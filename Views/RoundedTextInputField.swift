@@ -8,23 +8,22 @@
 
 import UIKit
  
-class RoundedTextInputField: UITextField
+class RoundedTextInputField : UITextField
 {
     override func layoutSubviews()
     {
         super.layoutSubviews()
         updateCornerRadiusTF()
     }
-
     
     var rounded : Bool = true
     { didSet { updateCornerRadiusTF() } }
-
 
     func updateCornerRadiusTF()
     {
         layer.cornerRadius = rounded ? frame.size.height / 9 : 0
         layer.borderWidth = 1
-        layer.borderColor = #colorLiteral(red: 0.6344695144, green: 0.6991830822, blue: 0.6485863625, alpha: 1)
+        layer.borderColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
     }
 }
+

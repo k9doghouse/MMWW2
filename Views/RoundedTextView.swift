@@ -23,8 +23,8 @@ class RoundedTextView: UITextView
 
     func updateCornerRadiusTV()
     {
-        layer.cornerRadius = rounded ? frame.size.height / 6 : 0
+        layer.cornerRadius = rounded ? frame.size.height / 8 : 0
         layer.borderWidth = 1
-        layer.borderColor = #colorLiteral(red: 0.4980392157, green: 0.7607843137, blue: 0.7647058824, alpha: 1)
+        layer.borderColor = #colorLiteral(red: 0.1215686275, green: 0.1294117647, blue: 0.1411764706, alpha: 1)
     }
 }

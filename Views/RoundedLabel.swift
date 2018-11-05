@@ -28,5 +28,5 @@ public class RoundedLabel : UILabel
 
 
     func updateCornerRadiusRL()
-    { layer.cornerRadius = rounded ? frame.size.height / 9 : 0 }
+    { layer.cornerRadius = rounded ? frame.size.height / 8 : 0 }
 }
