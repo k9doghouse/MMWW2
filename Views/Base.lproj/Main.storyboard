@@ -188,7 +188,7 @@
                                                                     <size key="shadowOffset" width="2" height="2"/>
                                                                 </label>
                                                                 <label opaque="NO" contentMode="center" horizontalHuggingPriority="249" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" restorationIdentifier="cellResultLabel" text="cellResultLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CDr-sR-iDz" userLabel="Cell Result Label" customClass="RoundedLabel" customModule="MMWW2" customModuleProvider="target">
-                                                                    <rect key="frame" x="193.66666666666663" y="6" width="171.33333333333337" height="28"/>
+                                                                    <rect key="frame" x="193.66666666666666" y="6" width="357.33333333333337" height="28"/>
                                                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                                     <color key="textColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -262,16 +262,19 @@
                     </view>
                     <connections>
                         <outlet property="countcount" destination="C3l-Jt-9yc" id="8f0-3F-6pJ"/>
+                        <outlet property="doublesSwitchOutlet" destination="9Mb-19-xgx" id="kKs-mf-Eb8"/>
+                        <outlet property="enterButtonOutlet" destination="Boa-Is-kFV" id="yDX-PZ-Hyk"/>
+                        <outlet property="guessTextField" destination="T87-1C-Q10" id="aEU-lW-5xM"/>
                         <outlet property="guessguess" destination="DBE-N0-PLg" id="9PY-zp-gvO"/>
+                        <outlet property="howManySCOutlet" destination="uch-b9-4fX" id="rvT-r0-Vhu"/>
                         <outlet property="resultresult" destination="1no-mG-Cov" id="yVb-VN-uIK"/>
                         <outlet property="tableView" destination="npl-t8-XVR" id="RYQ-hX-RKX"/>
-                        <outlet property="textField" destination="T87-1C-Q10" id="aEU-lW-5xM"/>
                         <outlet property="textView" destination="nJK-Do-rth" id="27m-wc-4DB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="540.57971014492762" y="711.68478260869574"/>
+            <point key="canvasLocation" x="628" y="704"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.49803921569999998" green="0.76078431369999999" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

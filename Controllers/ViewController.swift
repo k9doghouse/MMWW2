@@ -6,6 +6,7 @@
 //  2018 k9doghouse
 //
 
+import Foundation
 import UIKit
 
 struct GamePlay
@@ -39,11 +40,22 @@ var game = GamePlay(gameWord : "",
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate
 {
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var textField: UITextField!
+    @IBOutlet var guessTextField: UITextField!
+    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var enterButtonOutlet: RoundedButton!
+    @IBOutlet weak var doublesSwitchOutlet: UISwitch!
+    @IBOutlet weak var howManySCOutlet: UISegmentedControl!
     @IBOutlet weak var guessguess: UILabel!
     @IBOutlet weak var resultresult: UILabel!
     @IBOutlet weak var countcount: UILabel!
-    @IBOutlet weak var textView: UITextView!
+
+    func hideThese(shouldDo : Bool)
+    {
+        let doIt : Bool = shouldDo
+        guessguess.isHidden = doIt
+        resultresult.isHidden = doIt
+        countcount.isHidden = doIt
+    }
     
     func startGame()
     {
@@ -58,7 +70,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.dataSource = self
         tableView.estimatedRowHeight = 32.0
         tableView.rowHeight = UITableView.automaticDimension
+
+        guessTextField.addTarget(self, action :  #selector(guessTextFieldDidChange), for : .editingChanged)
+
         startGame()
+    }
+
+    @objc func guessTextFieldDidChange()
+    {  
+        if game.howManyLettersInTheWord == guessTextField.text?.count
+            { enterButtonOutlet.isEnabled = true }
+        else
+            { enterButtonOutlet.isEnabled = false }
     }
 
     func numberOfSections(in tableView: UITableView) -> Int
@@ -74,16 +97,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let row = indexPath.row
         count = row
 
-        switch count
+        switch count  //  count = which row in the tableview
         {
-        case 0:
+        case 0 :
             cell.cellCountLabel.text = "#"
             cell.cellCountLabel.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
             cell.cellGuessLabel.text = "guess "
             cell.cellGuessLabel.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
             cell.cellResultLabel.text = "result"
             cell.cellResultLabel.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-        default:
+            hideThese(shouldDo : true)
+        default :
+            hideThese(shouldDo : false)
             cell.cellCountLabel.text = String(count)
             cell.cellGuessLabel.text = game.guesses[row]
             cell.cellResultLabel.text = game.results[row]
@@ -94,9 +119,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBAction func enterButtonTapped(_ sender: UIButton)
     {
         let unwantedCharacters = CharacterSet(charactersIn : "[0123456789ABCDEFGHIJKLMNOPQRST\" \"UVWXYZ!~`@#$%^&*-+();:=_{}[],.<>?\\/|\"\']")
-        if textField.text?.count == game.howManyLettersInTheWord
+        if guessTextField.text?.count == game.howManyLettersInTheWord
         {
-            daGuess = textField.text?.lowercased() ?? "OUCH"
+            daGuess = guessTextField.text?.lowercased() ?? "OUCH"  // 
             guard daGuess.rangeOfCharacter(from: unwantedCharacters) == nil else { return }
             game.guess = daGuess
             guessguess.text = daGuess
@@ -104,7 +129,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             guard Set(guessString).count == game.howManyLettersInTheWord else { return }
 
             getResultStringForUsersInput()
-            textField.text = ""
+            guessTextField.text = ""
         } else { guessguess.text = String(game.howManyLettersInTheWord)+" letter word, pls." }
     }
 
@@ -155,12 +180,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 }// end class ViewController...
 
+
 extension ViewController
 {
     func result(for guessString: String) -> String
     {
         var includedAndCorrect = 0
         var includedOnly  = 0
+
+
+
         var guessLetter = Array(daGuess) /*Array(game.guess)*/
         let gameWordLetter = Array(daWord) /*Array(game.gameWord)*/
 
@@ -201,7 +230,7 @@ extension ViewController
         maxLength = 0
         resultresult.text = ""
         guessguess.text = ""
-        textField.text = ""
+        guessTextField.text = ""
         countcount.text = ""
         daWord = ""
         daGuess = ""
