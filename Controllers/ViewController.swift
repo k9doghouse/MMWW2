@@ -6,7 +6,6 @@
 //  2018 k9doghouse
 //
 
-import Foundation
 import UIKit
 
 struct GamePlay
@@ -31,30 +30,43 @@ var count : Int = 0
 let cellIdentifier = "Cell"
 
 var game = GamePlay(gameWord : "",
-                    guess : "",
-                    result : "",
-                    guesses : [""],
-                    results : [""],
-                    howManyLettersInTheWord: maxLength)
+                       guess : "",
+                      result : "",
+                     guesses : [""],
+                     results : [""],
+     howManyLettersInTheWord : maxLength)
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate
+@IBDesignable
+class ViewController : UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate
 {
-    @IBOutlet var tableView: UITableView!
-    @IBOutlet var guessTextField: UITextField!
-    @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var enterButtonOutlet: RoundedButton!
-    @IBOutlet weak var doublesSwitchOutlet: UISwitch!
-    @IBOutlet weak var howManySCOutlet: UISegmentedControl!
-    @IBOutlet weak var guessguess: UILabel!
-    @IBOutlet weak var resultresult: UILabel!
-    @IBOutlet weak var countcount: UILabel!
+    @IBOutlet var tableView : UITableView!
+    @IBOutlet var guessTextField : UITextField!
+    @IBOutlet weak var allowDoublesLabel : UILabel!
+    @IBOutlet weak var enterButtonOutlet : RoundedButton!
+    @IBOutlet weak var doublesSwitchOutlet : UISwitch!
+    @IBOutlet weak var howManySCOutlet : UISegmentedControl!
 
-    func hideThese(shouldDo : Bool)
+    func hideThese(shouldHide : Bool)
     {
-        let doIt : Bool = shouldDo
-        guessguess.isHidden = doIt
-        resultresult.isHidden = doIt
-        countcount.isHidden = doIt
+        switch shouldHide
+        {
+        case false :
+            UIView.animate(withDuration: 2.0, animations :
+                {
+                self.tableView.alpha = 1
+                self.howManySCOutlet.alpha = 1
+                self.doublesSwitchOutlet.alpha = 0
+                self.allowDoublesLabel.alpha = 1
+                })
+        case true:
+                UIView.animate(withDuration : 1.5, animations :
+                {
+                self.tableView.alpha = 0 
+                self.howManySCOutlet.alpha = 0.7
+                self.doublesSwitchOutlet.alpha = 0
+                self.allowDoublesLabel.alpha = 0
+                })
+        }
     }
     
     func startGame()
@@ -68,32 +80,36 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.estimatedRowHeight = 32.0
+        tableView.estimatedRowHeight = 30.0
         tableView.rowHeight = UITableView.automaticDimension
 
-        guessTextField.addTarget(self, action :  #selector(guessTextFieldDidChange), for : .editingChanged)
+        guessTextField.addTarget(self,
+                              action :  #selector(guessTextFieldDidChange),
+                                 for : .editingChanged)
 
         startGame()
     }
 
     @objc func guessTextFieldDidChange()
-    {  
+    {
         if game.howManyLettersInTheWord == guessTextField.text?.count
-            { enterButtonOutlet.isEnabled = true }
+        {
+            enterButtonOutlet.isEnabled = true
+        }
         else
             { enterButtonOutlet.isEnabled = false }
     }
 
-    func numberOfSections(in tableView: UITableView) -> Int
+    func numberOfSections(in tableView : UITableView) -> Int
     { return 1 }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    func tableView(_ tableView : UITableView, numberOfRowsInSection section : Int) -> Int
     { return game.results.count }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    func tableView(_ tableView : UITableView, cellForRowAt indexPath : IndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier,
-                                                 for: indexPath) as! GamePlayTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier : cellIdentifier,
+                                                 for : indexPath) as! GamePlayTableViewCell
         let row = indexPath.row
         count = row
 
@@ -102,13 +118,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         case 0 :
             cell.cellCountLabel.text = "#"
             cell.cellCountLabel.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-            cell.cellGuessLabel.text = "guess "
+            cell.cellGuessLabel.text = "guess"
             cell.cellGuessLabel.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
             cell.cellResultLabel.text = "result"
             cell.cellResultLabel.textColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
-            hideThese(shouldDo : true)
+            hideThese(shouldHide : true)
         default :
-            hideThese(shouldDo : false)
+            hideThese(shouldHide : false)
             cell.cellCountLabel.text = String(count)
             cell.cellGuessLabel.text = game.guesses[row]
             cell.cellResultLabel.text = game.results[row]
@@ -116,52 +132,57 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return cell
     }
 
-    @IBAction func enterButtonTapped(_ sender: UIButton)
+    @IBAction func enterButtonTapped(_ sender : UIButton)
     {
-        let unwantedCharacters = CharacterSet(charactersIn : "[0123456789ABCDEFGHIJKLMNOPQRST\" \"UVWXYZ!~`@#$%^&*-+();:=_{}[],.<>?\\/|\"\']")
+        let unwantedCharacters = CharacterSet(charactersIn : "[0123456789ABCDEFGHIJKLMNOPQRST\" \"UVWXYZ!~`@#$%^&*-+();:=_{}[],.<>?\\/|\"\']") // add emoji to the list
         if guessTextField.text?.count == game.howManyLettersInTheWord
         {
-            daGuess = guessTextField.text?.lowercased() ?? "OUCH"  // 
-            guard daGuess.rangeOfCharacter(from: unwantedCharacters) == nil else { return }
-            game.guess = daGuess
-            guessguess.text = daGuess
+            daGuess = guessTextField.text?.lowercased() ?? "OUCH"
+            guard daGuess.rangeOfCharacter(from: unwantedCharacters) == nil
+                else { return }
+            game.guess = daGuess 
+
             let guessString = daGuess
-            guard Set(guessString).count == game.howManyLettersInTheWord else { return }
+            guard Set(guessString).count == game.howManyLettersInTheWord
+                else { return }
 
             getResultStringForUsersInput()
             guessTextField.text = ""
-        } else { guessguess.text = String(game.howManyLettersInTheWord)+" letter word, pls." }
+        }
+        else
+        { self.resignFirstResponder() }
     }
 
-    @IBAction public func segmentedControlValueChanged(_ sender: UISegmentedControl)
+    @IBAction public func segmentedControlValueChanged(_ sender : UISegmentedControl)
     {
         switch sender.selectedSegmentIndex
         {
-        case 0:
+        case 0 :
             game.howManyLettersInTheWord = 4
             maxLength = game.howManyLettersInTheWord
             startGame()
-        case 1:
+        case 1 :
             game.howManyLettersInTheWord = 5
             maxLength = game.howManyLettersInTheWord
             startGame()
-        case 2:
+        case 2 :
             game.howManyLettersInTheWord = 6
             maxLength = game.howManyLettersInTheWord
             startGame()
-        default:
+        default :
             game.howManyLettersInTheWord = 4
             maxLength = game.howManyLettersInTheWord
             startGame()
         }
     }
 
-    @IBAction func allowDoubleLettersOrNotSwitch(_ sender: UISwitch)
+//  TODO: allow double letters in the game-word
+    @IBAction func allowDoubleLettersOrNotSwitch(_ sender : UISwitch)
     {  }
 
     func solved()
     {
-        Alert.showSolvedAlert(on: self)
+        Alert.showSolvedAlert(on : self)
         clearTheBoard()
         startGame()
     }
@@ -172,23 +193,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         { solved() }
         else
         {
-            daResult = result(for: game.guess)
-            resultresult.text = daResult
+            daResult = result(for : game.guess)
             daCount += 1
-            countcount.text = String(daCount)
         }
     }
-}// end class ViewController...
+} // end class ViewController...
 
 
 extension ViewController
 {
-    func result(for guessString: String) -> String
+    func result(for guessString : String) -> String
     {
-        var includedAndCorrect = 0
+        var includedAndInTheCorrectPosition = 0
         var includedOnly  = 0
-
-
 
         var guessLetter = Array(daGuess) /*Array(game.guess)*/
         let gameWordLetter = Array(daWord) /*Array(game.gameWord)*/
@@ -197,7 +214,7 @@ extension ViewController
         {
             if guessLetter[index] == gameWordLetter[index]
             {
-                includedAndCorrect += 1
+                includedAndInTheCorrectPosition += 1
                 guessLetter[index] = "𓃓"  // remove the character fom the mix
             }
             else if game.gameWord.contains(letter)
@@ -206,7 +223,7 @@ extension ViewController
                 guessLetter[index] = "𓃓" // remove the character fom the mix
             }
         }
-        game.result = " \(includedAndCorrect) 😎   \(includedOnly) 🙃"
+        game.result = " \(includedAndInTheCorrectPosition) 😎   \(includedOnly) 🙃"
         game.guesses.append(game.guess)
         game.results.append(game.result)
         tableView.reloadData()
@@ -220,21 +237,19 @@ extension ViewController
         game.guesses.removeAll()
         game.results.removeAll()
 
-        game = GamePlay(gameWord: "",
-                        guess: "",
-                        result: "",
-                        guesses: [""],
-                        results: [""],
-                        howManyLettersInTheWord: maxLength)
+        game = GamePlay(gameWord : "",
+                           guess : "",
+                          result : "",
+                         guesses : [""],
+                         results : [""],
+         howManyLettersInTheWord : maxLength)
 
         maxLength = 0
-        resultresult.text = ""
-        guessguess.text = ""
         guessTextField.text = ""
-        countcount.text = ""
         daWord = ""
         daGuess = ""
         daResult = ""
+        daCount = 0
         count = 0
         tableView.reloadData()
     }
@@ -243,7 +258,7 @@ extension ViewController
     {
         switch game.howManyLettersInTheWord
         {
-        case 4:
+        case 4 :
             maxLength = 4
             list4.shuffle()
             daWord = list4.randomElement() ?? "OOPS4!"
@@ -254,14 +269,14 @@ extension ViewController
             let fourth = 3
             let template = daWord
 
-            let firstCharStart  = template.index(template.startIndex, offsetBy: first)
-            let firstCharEnd    = template.index(template.endIndex,   offsetBy: -fourth)
-            let secondCharStart = template.index(template.startIndex, offsetBy: second)
-            let secondCharEnd   = template.index(template.endIndex,   offsetBy: -third)
-            let thirdCharStart  = template.index(template.startIndex, offsetBy: third)
-            let thirdCharEnd    = template.index(template.endIndex,   offsetBy: -second)
-            let fourthCharStart = template.index(template.startIndex, offsetBy: fourth)
-            let fourthCharEnd   = template.index(template.endIndex,   offsetBy: -first)
+            let firstCharStart  = template.index(template.startIndex, offsetBy : first)
+            let firstCharEnd    = template.index(template.endIndex,   offsetBy : -fourth)
+            let secondCharStart = template.index(template.startIndex, offsetBy : second)
+            let secondCharEnd   = template.index(template.endIndex,   offsetBy : -third)
+            let thirdCharStart  = template.index(template.startIndex, offsetBy : third)
+            let thirdCharEnd    = template.index(template.endIndex,   offsetBy : -second)
+            let fourthCharStart = template.index(template.startIndex, offsetBy : fourth)
+            let fourthCharEnd   = template.index(template.endIndex,   offsetBy : -first)
 
             let char1 = template[firstCharStart..<firstCharEnd]
             let char2 = template[secondCharStart..<secondCharEnd]
@@ -278,7 +293,7 @@ extension ViewController
             { getGameWordWithNoDoubledLetters() }
             else
             { daWord = template }
-        case 5:
+        case 5 :
             maxLength = 5
             list5.shuffle()
             daWord = list5.randomElement() ?? "OOPS5!"
@@ -290,20 +305,20 @@ extension ViewController
             let fifth  = 4
             let template = daWord
 
-            let firstCharStart  = template.index(template.startIndex, offsetBy: first)
-            let firstCharEnd    = template.index(template.endIndex,   offsetBy: -fifth)
+            let firstCharStart  = template.index(template.startIndex, offsetBy : first)
+            let firstCharEnd    = template.index(template.endIndex,   offsetBy : -fifth)
 
-            let secondCharStart = template.index(template.startIndex, offsetBy: second)
-            let secondCharEnd   = template.index(template.endIndex,   offsetBy: -fourth)
+            let secondCharStart = template.index(template.startIndex, offsetBy : second)
+            let secondCharEnd   = template.index(template.endIndex,   offsetBy : -fourth)
 
-            let thirdCharStart  = template.index(template.startIndex, offsetBy: third)
-            let thirdCharEnd    = template.index(template.endIndex,   offsetBy: -third)
+            let thirdCharStart  = template.index(template.startIndex, offsetBy : third)
+            let thirdCharEnd    = template.index(template.endIndex,   offsetBy : -third)
 
-            let fourthCharStart = template.index(template.startIndex, offsetBy: fourth)
-            let fourthCharEnd   = template.index(template.endIndex,   offsetBy: -second)
+            let fourthCharStart = template.index(template.startIndex, offsetBy : fourth)
+            let fourthCharEnd   = template.index(template.endIndex,   offsetBy : -second)
 
-            let fifthCharStart  = template.index(template.startIndex, offsetBy: fifth)
-            let fifthCharEnd    = template.index(template.endIndex,   offsetBy: -first)
+            let fifthCharStart  = template.index(template.startIndex, offsetBy : fifth)
+            let fifthCharEnd    = template.index(template.endIndex,   offsetBy : -first)
 
             let char1 = template[firstCharStart..<firstCharEnd]
             let char2 = template[secondCharStart..<secondCharEnd]
@@ -325,7 +340,7 @@ extension ViewController
             { getGameWordWithNoDoubledLetters() }
             else
             { daWord = template }
-        case 6:
+        case 6 :
             maxLength = 6
             list6.shuffle()
             daWord = list6.randomElement() ?? "OOPS!6"
@@ -338,18 +353,18 @@ extension ViewController
             let sixth  = 5
             let template = daWord
 
-            let firstCharStart  = template.index(template.startIndex, offsetBy: first)
-            let firstCharEnd    = template.index(template.endIndex,   offsetBy: -sixth)
-            let secondCharStart = template.index(template.startIndex, offsetBy: second)
-            let secondCharEnd   = template.index(template.endIndex,   offsetBy: -fifth)
-            let thirdCharStart  = template.index(template.startIndex, offsetBy: third)
-            let thirdCharEnd    = template.index(template.endIndex,   offsetBy: -fourth)
-            let fourthCharStart = template.index(template.startIndex, offsetBy: fourth)
-            let fourthCharEnd   = template.index(template.endIndex,   offsetBy: -third)
-            let fifthCharStart  = template.index(template.startIndex, offsetBy: fifth)
-            let fifthCharEnd    = template.index(template.endIndex,   offsetBy: -second)
-            let sixthCharStart  = template.index(template.startIndex, offsetBy: sixth)
-            let sixthCharEnd    = template.index(template.endIndex,   offsetBy: -first)
+            let firstCharStart  = template.index(template.startIndex, offsetBy : first)
+            let firstCharEnd    = template.index(template.endIndex,   offsetBy : -sixth)
+            let secondCharStart = template.index(template.startIndex, offsetBy : second)
+            let secondCharEnd   = template.index(template.endIndex,   offsetBy : -fifth)
+            let thirdCharStart  = template.index(template.startIndex, offsetBy : third)
+            let thirdCharEnd    = template.index(template.endIndex,   offsetBy : -fourth)
+            let fourthCharStart = template.index(template.startIndex, offsetBy : fourth)
+            let fourthCharEnd   = template.index(template.endIndex,   offsetBy : -third)
+            let fifthCharStart  = template.index(template.startIndex, offsetBy : fifth)
+            let fifthCharEnd    = template.index(template.endIndex,   offsetBy : -second)
+            let sixthCharStart  = template.index(template.startIndex, offsetBy : sixth)
+            let sixthCharEnd    = template.index(template.endIndex,   offsetBy : -first)
 
             let char1 = template[firstCharStart..<firstCharEnd]
             let char2 = template[secondCharStart..<secondCharEnd]
@@ -389,14 +404,14 @@ extension ViewController
 
             let template = daWord
 
-            let firstCharStart  = template.index(template.startIndex, offsetBy: first)
-            let firstCharEnd    = template.index(template.endIndex,   offsetBy: -fourth)
-            let secondCharStart = template.index(template.startIndex, offsetBy: second)
-            let secondCharEnd   = template.index(template.endIndex,   offsetBy: -third)
-            let thirdCharStart  = template.index(template.startIndex, offsetBy: third)
-            let thirdCharEnd    = template.index(template.endIndex,   offsetBy: -second)
-            let fourthCharStart = template.index(template.startIndex, offsetBy: fourth)
-            let fourthCharEnd   = template.index(template.endIndex,   offsetBy: -first)
+            let firstCharStart  = template.index(template.startIndex, offsetBy : first)
+            let firstCharEnd    = template.index(template.endIndex,   offsetBy : -fourth)
+            let secondCharStart = template.index(template.startIndex, offsetBy : second)
+            let secondCharEnd   = template.index(template.endIndex,   offsetBy : -third)
+            let thirdCharStart  = template.index(template.startIndex, offsetBy : third)
+            let thirdCharEnd    = template.index(template.endIndex,   offsetBy : -second)
+            let fourthCharStart = template.index(template.startIndex, offsetBy : fourth)
+            let fourthCharEnd   = template.index(template.endIndex,   offsetBy : -first)
 
             let char1 = template[firstCharStart..<firstCharEnd]
             let char2 = template[secondCharStart..<secondCharEnd]
