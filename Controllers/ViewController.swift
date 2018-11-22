@@ -23,27 +23,25 @@ var daWord : String = ""
 var daGuess : String = ""
 var daResult : String = ""
 var daCount : Int = 0
-var list4 : [String] = Four().four
-var list5 : [String] = Five().five
-var list6 : [String] = Six().six
+var list4 : [String] = FourClean().fourClean
+var list5 : [String] = FiveClean().fiveClean
+var list6 : [String] = SixClean().sixClean
 var count : Int = 0
 let cellIdentifier = "Cell"
 
 var game = GamePlay(gameWord : "",
-                       guess : "",
-                      result : "",
-                     guesses : [""],
-                     results : [""],
-     howManyLettersInTheWord : maxLength)
+                    guess : "",
+                    result : "",
+                    guesses : [""],
+                    results : [""],
+                    howManyLettersInTheWord : maxLength)
 
 @IBDesignable
 class ViewController : UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate
 {
     @IBOutlet var tableView : UITableView!
     @IBOutlet var guessTextField : UITextField!
-    @IBOutlet weak var allowDoublesLabel : UILabel!
     @IBOutlet weak var enterButtonOutlet : RoundedButton!
-    @IBOutlet weak var doublesSwitchOutlet : UISwitch!
     @IBOutlet weak var howManySCOutlet : UISegmentedControl!
 
     func hideThese(shouldHide : Bool)
@@ -51,21 +49,17 @@ class ViewController : UIViewController, UITableViewDataSource, UITableViewDeleg
         switch shouldHide
         {
         case false :
-            UIView.animate(withDuration: 2.0, animations :
+            UIView.animate(withDuration: 1.0, animations :
                 {
-                self.tableView.alpha = 1
-                self.howManySCOutlet.alpha = 1
-                self.doublesSwitchOutlet.alpha = 0
-                self.allowDoublesLabel.alpha = 1
-                })
+                    self.tableView.alpha = 1
+                    self.howManySCOutlet.alpha = 1
+            })
         case true:
-                UIView.animate(withDuration : 1.5, animations :
+            UIView.animate(withDuration : 1.5, animations :
                 {
-                self.tableView.alpha = 0 
-                self.howManySCOutlet.alpha = 0.7
-                self.doublesSwitchOutlet.alpha = 0
-                self.allowDoublesLabel.alpha = 0
-                })
+                    self.tableView.alpha = 0
+                    self.howManySCOutlet.alpha = 0.9
+            })
         }
     }
     
@@ -84,7 +78,7 @@ class ViewController : UIViewController, UITableViewDataSource, UITableViewDeleg
         tableView.rowHeight = UITableView.automaticDimension
 
         guessTextField.addTarget(self,
-                              action :  #selector(guessTextFieldDidChange),
+                                 action :  #selector(guessTextFieldDidChange),
                                  for : .editingChanged)
 
         startGame()
@@ -97,7 +91,7 @@ class ViewController : UIViewController, UITableViewDataSource, UITableViewDeleg
             enterButtonOutlet.isEnabled = true
         }
         else
-            { enterButtonOutlet.isEnabled = false }
+        { enterButtonOutlet.isEnabled = false }
     }
 
     func numberOfSections(in tableView : UITableView) -> Int
@@ -134,7 +128,8 @@ class ViewController : UIViewController, UITableViewDataSource, UITableViewDeleg
 
     @IBAction func enterButtonTapped(_ sender : UIButton)
     {
-        let unwantedCharacters = CharacterSet(charactersIn : "[0123456789ABCDEFGHIJKLMNOPQRST\" \"UVWXYZ!~`@#$%^&*-+();:=_{}[],.<>?\\/|\"\']") // add emoji to the list
+        let unwantedCharacters = CharacterSet(charactersIn : "[0123456789ABCDEFGHIJKLMNOPQRST\" \"UVWXYZ!~`@#$%^&*-+();:=_{}[],.<>?\\/|\"\']")
+        
         if guessTextField.text?.count == game.howManyLettersInTheWord
         {
             daGuess = guessTextField.text?.lowercased() ?? "OUCH"
@@ -176,10 +171,6 @@ class ViewController : UIViewController, UITableViewDataSource, UITableViewDeleg
         }
     }
 
-//  TODO: allow double letters in the game-word
-    @IBAction func allowDoubleLettersOrNotSwitch(_ sender : UISwitch)
-    {  }
-
     func solved()
     {
         Alert.showSolvedAlert(on : self)
@@ -207,20 +198,20 @@ extension ViewController
         var includedAndInTheCorrectPosition = 0
         var includedOnly  = 0
 
-        var guessLetter = Array(daGuess) /*Array(game.guess)*/
-        let gameWordLetter = Array(daWord) /*Array(game.gameWord)*/
+        var guessLetter = Array(daGuess)
+        let gameWordLetter = Array(daWord)
 
         for (index, letter) in guessLetter.enumerated()
         {
             if guessLetter[index] == gameWordLetter[index]
             {
                 includedAndInTheCorrectPosition += 1
-                guessLetter[index] = "𓃓"  // remove the character fom the mix
+                guessLetter[index] = "𓃓"
             }
             else if game.gameWord.contains(letter)
             {
                 includedOnly += 1
-                guessLetter[index] = "𓃓" // remove the character fom the mix
+                guessLetter[index] = "𓃓"
             }
         }
         game.result = " \(includedAndInTheCorrectPosition) 😎   \(includedOnly) 🙃"
@@ -238,11 +229,11 @@ extension ViewController
         game.results.removeAll()
 
         game = GamePlay(gameWord : "",
-                           guess : "",
-                          result : "",
-                         guesses : [""],
-                         results : [""],
-         howManyLettersInTheWord : maxLength)
+                        guess : "",
+                        result : "",
+                        guesses : [""],
+                        results : [""],
+                        howManyLettersInTheWord : maxLength)
 
         maxLength = 0
         guessTextField.text = ""
@@ -283,16 +274,7 @@ extension ViewController
             let char3 = template[thirdCharStart..<thirdCharEnd]
             let char4 = template[fourthCharStart..<fourthCharEnd]
             print("4. chars: ",char1+char2+char3+char4)
-
-            if  char1 == char2 ||
-                char1 == char3 ||
-                char1 == char4 ||
-                char2 == char3 ||
-                char2 == char4 ||
-                char3 == char4
-            { getGameWordWithNoDoubledLetters() }
-            else
-            { daWord = template }
+            daWord = template
         case 5 :
             maxLength = 5
             list5.shuffle()
@@ -326,20 +308,7 @@ extension ViewController
             let char4 = template[fourthCharStart..<fourthCharEnd]
             let char5 = template[fifthCharStart..<fifthCharEnd]
             print("5. chars: ",char1+char2+char3+char4+char5)
-
-            if  char1 == char2 ||
-                char1 == char3 ||
-                char1 == char4 ||
-                char1 == char5 ||
-                char2 == char3 ||
-                char2 == char4 ||
-                char2 == char5 ||
-                char3 == char4 ||
-                char3 == char5 ||
-                char4 == char5
-            { getGameWordWithNoDoubledLetters() }
-            else
-            { daWord = template }
+            daWord = template
         case 6 :
             maxLength = 6
             list6.shuffle()
@@ -373,25 +342,7 @@ extension ViewController
             let char5 = template[fifthCharStart..<fifthCharEnd]
             let char6 = template[sixthCharStart..<sixthCharEnd]
             print("6. chars: ",char1+char2+char3+char4+char5+char6)
-
-            if  char1 == char2 ||
-                char1 == char3 ||
-                char1 == char4 ||
-                char1 == char5 ||
-                char1 == char6 ||
-                char2 == char3 ||
-                char2 == char4 ||
-                char2 == char5 ||
-                char2 == char6 ||
-                char3 == char4 ||
-                char3 == char5 ||
-                char3 == char6 ||
-                char4 == char5 ||
-                char4 == char6 ||
-                char5 == char6
-            { getGameWordWithNoDoubledLetters() }
-            else
-            { daWord = template }
+            daWord = template
         default:
             maxLength = 4
             list4.shuffle()
@@ -418,16 +369,7 @@ extension ViewController
             let char3 = template[thirdCharStart..<thirdCharEnd]
             let char4 = template[fourthCharStart..<fourthCharEnd]
             print("default. chars: ",char1+char2+char3+char4)
-
-            if  char1 == char2 ||
-                char1 == char3 ||
-                char1 == char4 ||
-                char2 == char3 ||
-                char2 == char4 ||
-                char3 == char4
-            { getGameWordWithNoDoubledLetters() }
-            else
-            { daWord = template }
+            daWord = template
         }
     }
 } // end extension ViewController...
