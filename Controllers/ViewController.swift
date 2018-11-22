@@ -36,7 +36,6 @@ var game = GamePlay(gameWord : "",
                     results : [""],
                     howManyLettersInTheWord : maxLength)
 
-@IBDesignable
 class ViewController : UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate
 {
     @IBOutlet var tableView : UITableView!
@@ -76,12 +75,19 @@ class ViewController : UIViewController, UITableViewDataSource, UITableViewDeleg
         tableView.dataSource = self
         tableView.estimatedRowHeight = 30.0
         tableView.rowHeight = UITableView.automaticDimension
-
+        
+        self.guessTextField.delegate = self
         guessTextField.addTarget(self,
                                  action :  #selector(guessTextFieldDidChange),
                                  for : .editingChanged)
 
         startGame()
+    }
+
+    func textFieldShouldReturn(_ textField : UITextField) -> Bool
+    {
+        self.view.endEditing(true)
+        return false
     }
 
     @objc func guessTextFieldDidChange()
@@ -107,7 +113,7 @@ class ViewController : UIViewController, UITableViewDataSource, UITableViewDeleg
         let row = indexPath.row
         count = row
 
-        switch count  //  count = which row in the tableview
+        switch count  
         {
         case 0 :
             cell.cellCountLabel.text = "#"
@@ -129,7 +135,7 @@ class ViewController : UIViewController, UITableViewDataSource, UITableViewDeleg
     @IBAction func enterButtonTapped(_ sender : UIButton)
     {
         let unwantedCharacters = CharacterSet(charactersIn : "[0123456789ABCDEFGHIJKLMNOPQRST\" \"UVWXYZ!~`@#$%^&*-+();:=_{}[],.<>?\\/|\"\']")
-        
+
         if guessTextField.text?.count == game.howManyLettersInTheWord
         {
             daGuess = guessTextField.text?.lowercased() ?? "OUCH"
@@ -214,7 +220,7 @@ extension ViewController
                 guessLetter[index] = "𓃓"
             }
         }
-        game.result = " \(includedAndInTheCorrectPosition) 😎   \(includedOnly) 🙃"
+        game.result = " \(includedAndInTheCorrectPosition)😎 \(includedOnly)🙃"
         game.guesses.append(game.guess)
         game.results.append(game.result)
         tableView.reloadData()
@@ -254,6 +260,7 @@ extension ViewController
             list4.shuffle()
             daWord = list4.randomElement() ?? "OOPS4!"
             game.gameWord = daWord
+
             let first  = 0
             let second = 1
             let third  = 2
@@ -280,6 +287,7 @@ extension ViewController
             list5.shuffle()
             daWord = list5.randomElement() ?? "OOPS5!"
             game.gameWord = daWord
+
             let first  = 0
             let second = 1
             let third  = 2
@@ -314,6 +322,7 @@ extension ViewController
             list6.shuffle()
             daWord = list6.randomElement() ?? "OOPS!6"
             game.gameWord = daWord
+
             let first  = 0
             let second = 1
             let third  = 2
@@ -348,11 +357,11 @@ extension ViewController
             list4.shuffle()
             daWord = list4.randomElement() ?? "SHUCKS!"
             game.gameWord = daWord
+
             let first  = 0
             let second = 1
             let third  = 2
             let fourth = 3
-
             let template = daWord
 
             let firstCharStart  = template.index(template.startIndex, offsetBy : first)
